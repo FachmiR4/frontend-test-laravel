@@ -26,14 +26,20 @@ use Inertia\Inertia;
 
 //     ]);
 // });
+Route::get('/test', function(){
+    return Inertia::render('CreateData', [
+        'title' => 'Create Data'
+    ]);
+})->name('test');
+
 Route::prefix('anggota')->group(function(){
     Route::get('/', [AnggotaController::class, 'index'])->name('anggota.list');
-    Route::get('/anggota/{uuid}', [AnggotaController::class, 'show']);
-    Route::get('/create', [AnggotaController::class, 'create']);
-    Route::post('/', [AnggotaController::class, 'store']);
-    Route::get('/anggota/{uuid}/edit', [AnggotaController::class, 'edit']);
-    Route::put('/anggota/{uuid}', [AnggotaController::class, 'update']);
-    Route::delete('/anggota/{uuid}/delete', [AnggotaController::class, 'delete']);
+    Route::get('/{uuid}', [AnggotaController::class, 'show'])->name('anggota.show');
+    Route::get('/create/data', [AnggotaController::class, 'create'])->name('anggota.create');
+    Route::post('/', [AnggotaController::class, 'store'])->name('anggota.store');
+    Route::get('/{uuid}/edit', [AnggotaController::class, 'edit'])->name('anggota.edit');
+    Route::post('/{uuid}', [AnggotaController::class, 'update'])->name('anggota.update');
+    Route::post('/{uuid}/delete', [AnggotaController::class, 'destroy'])->name('anggota.delete');
 });
 
 // Route::get('/welcome', function () {
