@@ -1,9 +1,14 @@
 import { Link, Head } from "@inertiajs/react";
+import Notification from "@/Components/anggota/Notification";
 export default function DetailAnggota(props) {
     console.log(props.data.name);
     return (
         <div>
             <Head title={props.title} />
+            <Notification
+                success={props.flash.success}
+                error={props.flash.error}
+            />
             <div className="container mx-auto p-6">
                 <div className="text-center mb-8">
                     <h1 className="text-3xl font-bold text-white-800">

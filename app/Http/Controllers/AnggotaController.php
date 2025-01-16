@@ -90,7 +90,7 @@ class AnggotaController extends Controller
             ]);
             $responseData = json_decode($response->getBody()->getContents(), true);
             if ($responseData && isset($responseData['status']) && $responseData['status'] === 'Success') {
-                return redirect()->back()->with('success', 'Data successfully created.');
+                return redirect()->back()->with('success', 'Data '. $request->name . ' successfully created.');
             }
             $errorMessage = isset($responseData['message']) ? $responseData['message'] : 'Unknown error occurred';
                 return redirect()->back()->with('error', $errorMessage);
@@ -194,7 +194,7 @@ class AnggotaController extends Controller
             ]);
             $responseData = json_decode($response->getBody()->getContents(), true);
             if ($responseData && isset($responseData['status']) && $responseData['status'] === 'Success') {
-                return redirect()->route('anggota.show', $uuid)->with('success', 'Data successfully created.');
+                return redirect()->route('anggota.show', $uuid)->with('success', 'Data '. $request->name . ' successfully Update.');
             }
             $errorMessage = isset($responseData['message']) ? $responseData['message'] : 'Unknown error occurred';
             return redirect()->back()->with('error', $errorMessage);
@@ -229,7 +229,7 @@ class AnggotaController extends Controller
             ]);
             $responseData = json_decode($response->getBody()->getContents(), true);
             if ($responseData && isset($responseData['status']) && $responseData['status'] === 'Success') {
-                return redirect()->back()->with('success', 'Data successfully created.');
+                return redirect()->back()->with('success', 'Data successfully Delete.');
             }
             $errorMessage = isset($responseData['message']) ? $responseData['message'] : 'Unknown error occurred';
             return redirect()->back()->with('error', $errorMessage);

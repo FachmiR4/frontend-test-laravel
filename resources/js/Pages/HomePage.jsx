@@ -7,6 +7,10 @@ export default function Homepage(props) {
     return (
         <div>
             <Head title={props.title} />
+            <Notification
+                success={props.flash.success}
+                error={props.flash.error}
+            />
             <div
                 className="flex justify-center items-center mb-4"
                 style={{ marginTop: "10px" }}

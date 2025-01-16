@@ -59,7 +59,11 @@ const isAnggota = (datas) => {
                 <td>{data.name}</td>
                 <td>{data.email}</td>
                 <td>{data.no_hp}</td>
-                <td>{data.alamat}</td>
+                <td>
+                    {data.alamat.length > 30
+                        ? `${data.alamat.substring(0, 30)}...`
+                        : data.alamat}
+                </td>
                 <td>{handleButton(data.id)}</td>
             </tr>
         );

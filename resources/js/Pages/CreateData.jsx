@@ -1,6 +1,7 @@
 import { Head, Link } from "@inertiajs/react";
 import { useState } from "react";
 import { router } from "@inertiajs/react";
+import Notification from "@/Components/anggota/Notification";
 
 export default function CreaateData(props) {
     const [name, setName] = useState("");
@@ -10,7 +11,7 @@ export default function CreaateData(props) {
     const handleSubmit = () => {
         const data = {
             name,
-            email, 
+            email,
             no_hp,
             alamat,
         };
@@ -19,7 +20,10 @@ export default function CreaateData(props) {
     return (
         <div>
             <Head title={props.title} />
-
+            <Notification
+                success={props.flash.success}
+                error={props.flash.error}
+            />
             <div className="py-12">
                 <div
                     className="m-14 flex justify-start items-center mb-4"
